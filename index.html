@@ -36,6 +36,7 @@
             animation: {
                 'float': 'float 8s ease-in-out infinite',
                 'marquee': 'marquee 60s linear infinite',
+                'glow': 'glow 4s ease-in-out infinite alternate',
             },
             keyframes: {
                 float: {
@@ -45,6 +46,10 @@
                 marquee: {
                     '0%': { transform: 'translateX(0%)' },
                     '100%': { transform: 'translateX(-100%)' },
+                },
+                glow: {
+                    '0%': { opacity: 0.5, transform: 'translate(-50%, -50%) scale(1)' },
+                    '100%': { opacity: 0.8, transform: 'translate(-50%, -50%) scale(1.1)' },
                 }
             }
           }
@@ -84,8 +89,9 @@
     <nav class="fixed w-full z-50 transition-all duration-300 bg-brandDark/90 backdrop-blur-md border-b border-white/5">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <div class="flex items-center space-x-3 cursor-pointer" onclick="window.scrollTo(0,0)">
-                <!-- Placeholder for logo if you have one, or text fallback -->
-                <div class="font-serif font-bold text-2xl tracking-wide text-white">OUTBOX MEDIA</div>
+                <!-- Logo -->
+                <img src="ChatGPT Image Nov 17, 2025 at 01_15_40 AM.jpg" alt="Outbox" class="h-10 w-10 rounded-full border border-white/20">
+                <div class="hidden md:block font-serif font-bold text-xl tracking-wide text-white">OUTBOX MEDIA</div>
             </div>
 
             <div class="hidden md:flex items-center space-x-8 text-sm font-medium tracking-wide text-gray-300">
@@ -114,9 +120,13 @@
                 <span class="text-xs uppercase tracking-widest text-gray-300">New AI Engines Available</span>
             </div>
 
-            <h1 data-aos="fade-up" data-aos-delay="100" class="text-5xl md:text-8xl font-serif font-bold leading-tight mb-6 text-gradient">
-                We Build Content Engines<br>
-                <span class="italic text-white opacity-80 font-light">That Grow Businesses.</span>
+            <!-- Fixed Headline with Glow -->
+            <h1 data-aos="fade-up" data-aos-delay="100" class="relative text-5xl md:text-8xl font-serif font-bold leading-tight mb-6">
+                <!-- Premium Glow Effect Behind Text -->
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-gradient-to-r from-brandTeal/30 via-purple-500/30 to-brandGold/30 blur-[100px] -z-10 animate-glow"></div>
+                
+                <span class="text-gradient">We Build Content Engines</span><br>
+                <span class="italic text-white font-light">That Grow Businesses.</span>
             </h1>
 
             <p data-aos="fade-up" data-aos-delay="200" class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
@@ -135,7 +145,7 @@
 
             <!-- Floating Hero Elements -->
             <div class="mt-20 relative w-full max-w-6xl mx-auto h-[400px] hidden md:block">
-                <!-- Left: UGC Lifestyle -->
+                <!-- Left: AI Lifestyle -->
                 <div class="absolute left-0 top-10 w-64 h-80 rounded-2xl overflow-hidden border border-white/10 shadow-2xl transform -rotate-6 hover:rotate-0 transition-all duration-500 animate-float hover:z-50">
                     <img src="AI-MODEL-#1.jpg" class="w-full h-full object-cover" alt="UGC Lifestyle">
                     <div class="absolute bottom-3 left-3 bg-black/60 px-3 py-1 rounded-md text-xs font-mono backdrop-blur-md">UGC_LIFESTYLE</div>
@@ -156,7 +166,7 @@
         </div>
     </header>
 
-    <!-- AI GENERATED CREATORS SECTION (Replaces Viral Shorts) -->
+    <!-- AI GENERATED CREATORS SECTION -->
     <section id="creators" class="py-24 bg-brandGray border-y border-white/5">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16" data-aos="fade-up">
@@ -336,13 +346,13 @@
         </div>
     </section>
 
-    <!-- VISUAL SHOWCASE MARQUEE (Updated with new filenames) -->
+    <!-- VISUAL SHOWCASE MARQUEE (Using NEW Filenames) -->
     <section id="showcase" class="py-16 bg-white/5 border-y border-white/10 overflow-hidden">
         <div class="text-center mb-8">
             <h3 class="text-sm font-mono text-gray-400 uppercase tracking-widest">Our AI Production Gallery</h3>
         </div>
         <div class="flex animate-marquee w-max gap-8 items-center">
-            <!-- Set 1 -->
+            <!-- Set 1 (1-18) -->
             <img src="ai-product-image-#1.jpg" class="h-64 w-auto rounded-lg object-cover">
             <img src="ai-product-image-#2.jpg" class="h-64 w-auto rounded-lg object-cover">
             <img src="ai-product-image-#3.jpg" class="h-64 w-auto rounded-lg object-cover">
@@ -362,11 +372,12 @@
             <img src="ai-product-image-#17.jpg" class="h-64 w-auto rounded-lg object-cover">
             <img src="ai-product-image-#18.jpg" class="h-64 w-auto rounded-lg object-cover">
             
-            <!-- Duplicate for seamless loop (Partial set) -->
+            <!-- Duplicate for seamless loop (First few images) -->
             <img src="ai-product-image-#1.jpg" class="h-64 w-auto rounded-lg object-cover">
+            <img src="ai-product-image-#2.jpg" class="h-64 w-auto rounded-lg object-cover">
+            <img src="ai-product-image-#3.jpg" class="h-64 w-auto rounded-lg object-cover">
+            <img src="ai-product-image-#4.jpg" class="h-64 w-auto rounded-lg object-cover">
             <img src="ai-product-image-#5.jpg" class="h-64 w-auto rounded-lg object-cover">
-            <img src="ai-product-image-#10.jpg" class="h-64 w-auto rounded-lg object-cover">
-            <img src="ai-product-image-#15.jpg" class="h-64 w-auto rounded-lg object-cover">
         </div>
     </section>
 
