@@ -7,59 +7,35 @@
     <meta name="description" content="Cinematic AI product shoots, UGC ads, and high-retention content engines for modern brands.">
     <meta property="og:title" content="Outbox Media | The AI Content Revolution" />
     <meta property="og:description" content="Stop chasing viral flukes. We build content engines that grow businesses." />
-    
     <meta property="og:image" content="https://github.com/verman5069-ui/my-final-website/blob/main/outbox-preview.jpg?raw=true" />
-    
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:type" content="website" />
     
-    
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- AOS Animation Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Tailwind Config -->
     <script>
       tailwind.config = {
         theme: {
           extend: {
             colors: {
-              brandDark: "#0a0a0a",
-              brandGray: "#121212",
-              brandTeal: "#2dd4bf", 
-              brandPurple: "#a855f7",
-              brandGold: "#fbbf24",
+              brandDark: "#030303",
+              brandCard: "#0a0a0a",
+              brandBorder: "rgba(255, 255, 255, 0.08)",
+              brandMuted: "#888888",
             },
             fontFamily: {
-                sans: ['Instrument Sans', 'sans-serif'],
-                serif: ['Playfair Display', 'serif'],
+                sans: ['"Plus Jakarta Sans"', 'sans-serif'],
             },
-            animation: {
-                'float': 'float 8s ease-in-out infinite',
-                'marquee': 'marquee 60s linear infinite',
-                'glow': 'glow 4s ease-in-out infinite alternate',
-            },
-            keyframes: {
-                float: {
-                    '0%, 100%': { transform: 'translateY(0)' },
-                    '50%': { transform: 'translateY(-20px)' },
-                },
-                marquee: {
-                    '0%': { transform: 'translateX(0%)' },
-                    '100%': { transform: 'translateX(-100%)' },
-                },
-                glow: {
-                    '0%': { opacity: 0.4, transform: 'translate(-50%, -50%) scale(1)' },
-                    '100%': { opacity: 0.7, transform: 'translate(-50%, -50%) scale(1.1)' },
-                }
+            letterSpacing: {
+                tighter: '-.04em',
+                tight: '-.02em',
             }
           }
         }
@@ -67,406 +43,222 @@
     </script>
 
     <style>
-        body { background-color: #0a0a0a; color: #ffffff; overflow-x: hidden; }
+        body { background-color: #030303; color: #ffffff; overflow-x: hidden; }
         
-        /* Glassmorphism */
-        .glass-panel {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+        /* Ultra-minimalist Glassmorphism */
+        .glass-nav {
+            background: rgba(3, 3, 3, 0.8);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--brandBorder);
         }
         
-        .text-gradient {
-            background: linear-gradient(to right, #ffffff, #94a3b8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .agency-card {
+            background: #0a0a0a;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .agency-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255, 255, 255, 0.15);
+            background: #0f0f0f;
         }
 
-        /* Before/After Hover Effect */
-        .comparison-card:hover .after-image { opacity: 1; }
-        .after-image { opacity: 0; transition: opacity 0.5s ease-in-out; }
-        
+        /* Subtle text glow for hero */
+        .hero-text-glow {
+            text-shadow: 0 0 60px rgba(255, 255, 255, 0.15);
+        }
+
         /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #0a0a0a; }
-        ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #030303; }
+        ::-webkit-scrollbar-thumb { background: #222; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #444; }
     </style>
 </head>
-<body class="selection:bg-white selection:text-black">
+<body class="selection:bg-white selection:text-black antialiased font-sans">
 
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 transition-all duration-300 bg-brandDark/90 backdrop-blur-md border-b border-white/5">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300">
+        <div class="container mx-auto px-6 py-5 flex justify-between items-center">
             <div class="flex items-center space-x-3 cursor-pointer" onclick="window.scrollTo(0,0)">
-                <div class="font-serif font-bold text-xl tracking-wide text-white">OUTBOX MEDIA</div>
+                <div class="font-bold text-xl tracking-tighter text-white uppercase">Outbox<span class="text-brandMuted">Media.</span></div>
             </div>
 
-            <div class="hidden md:flex items-center space-x-8 text-sm font-medium tracking-wide text-gray-300">
-                <a href="#creators" class="hover:text-white transition-colors">AI Creators</a>
-                <a href="#comparison" class="hover:text-white transition-colors">Before/After</a>
-                <a href="#services" class="hover:text-white transition-colors">Solutions</a>
-                <a href="#showcase" class="hover:text-white transition-colors">Showcase</a>
+            <div class="hidden md:flex items-center space-x-10 text-sm font-medium text-brandMuted">
+                <a href="#work" class="hover:text-white transition-colors">Work</a>
+                <a href="#solutions" class="hover:text-white transition-colors">Capabilities</a>
+                <a href="#creators" class="hover:text-white transition-colors">AI Talent</a>
                 <a href="#about" class="hover:text-white transition-colors">Founder</a>
-                <a href="https://calendly.com/outboxmedia-nikhil/30min" target="_blank" class="px-6 py-2 bg-white text-black rounded-full font-semibold hover:bg-gray-200 transition-all">
-                    Book Strategy
+                <a href="https://calendly.com/outboxmedia-nikhil/30min" target="_blank" class="px-6 py-2.5 bg-white text-black rounded-full font-semibold hover:bg-gray-200 transition-all">
+                    Initiate Project
                 </a>
             </div>
         </div>
     </nav>
 
-    <!-- HERO SECTION -->
-    <header class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
-        <!-- Ambient Background -->
-        <div class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-brandGray via-brandDark to-brandDark opacity-80"></div>
-        <div class="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-brandTeal/5 rounded-full blur-[120px] animate-float"></div>
-        <div class="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-brandPurple/5 rounded-full blur-[120px] animate-float" style="animation-delay: 2s;"></div>
+    <header class="relative min-h-screen flex items-center pt-24 pb-12 overflow-hidden">
+        <div class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_10%,transparent_100%)]"></div>
 
-        <div class="container mx-auto px-6 relative z-10 text-center">
-            <div data-aos="fade-up" class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm mb-8">
-                <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-                <span class="text-xs uppercase tracking-widest text-gray-300">New AI Engines Available</span>
+        <div class="container mx-auto px-6 relative z-10 flex flex-col items-center text-center">
+            <div data-aos="fade-up" class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 mb-8">
+                <span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
+                <span class="text-xs font-semibold uppercase tracking-widest text-brandMuted">The Future of Content</span>
             </div>
 
-            <!-- Fixed Headline with Glow -->
-            <div class="relative mb-6">
-                <!-- Glow Effect Layer (Behind Text) -->
-                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60%] h-[60%] bg-gradient-to-r from-brandTeal/20 via-purple-500/20 to-brandGold/20 blur-[80px] -z-10 animate-glow"></div>
-                
-                <h1 data-aos="fade-up" data-aos-delay="100" class="text-5xl md:text-8xl font-serif font-bold leading-tight relative z-20">
-                    <span class="text-gradient">We Build Content Engines</span><br>
-                    <span class="italic text-white font-light block mt-2" style="text-shadow: 0 0 20px rgba(255,255,255,0.3);">That Grow Businesses.</span>
-                </h1>
-            </div>
+            <h1 data-aos="fade-up" data-aos-delay="100" class="text-6xl md:text-8xl lg:text-[7rem] font-bold tracking-tighter leading-[0.9] hero-text-glow mb-8">
+                Digital media <br>
+                <span class="text-brandMuted">redefined.</span>
+            </h1>
 
-            <p data-aos="fade-up" data-aos-delay="200" class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
-                Stop chasing viral flukes. Get a complete solution designed for founders—from <span class="text-white">ideation</span> to <span class="text-white">retention-focused editing</span> and <span class="text-white">AI-generated growth</span>.
+            <p data-aos="fade-up" data-aos-delay="200" class="text-lg md:text-xl text-brandMuted max-w-2xl mx-auto mb-12 font-medium">
+                We engineer content engines that scale. From AI-generated lifestyle assets to hyper-retention editing for modern brands.
             </p>
 
-            <div data-aos="fade-up" data-aos-delay="300" class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a href="https://calendly.com/outboxmedia-nikhil/30min" target="_blank" class="px-8 py-4 bg-white text-black font-bold text-lg rounded-full hover:scale-105 transition-transform flex items-center gap-2">
-                    Schedule Strategy Call
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+            <div data-aos="fade-up" data-aos-delay="300" class="flex flex-col sm:flex-row items-center gap-4">
+                <a href="https://calendly.com/outboxmedia-nikhil/30min" target="_blank" class="px-8 py-4 bg-white text-black font-bold rounded-full hover:scale-105 transition-transform flex items-center gap-2">
+                    Book Strategy Session
                 </a>
-                <a href="#services" class="px-8 py-4 border border-white/20 text-white font-medium text-lg rounded-full hover:bg-white/5 transition-all">
-                    Explore Solutions
+                <a href="#work" class="px-8 py-4 text-white font-medium rounded-full hover:text-brandMuted transition-colors flex items-center gap-2">
+                    View Portfolio <span class="text-xl">↓</span>
                 </a>
-            </div>
-
-            <!-- Floating Hero Elements -->
-            <div class="mt-20 relative w-full max-w-6xl mx-auto h-[400px] hidden md:block">
-                <!-- Left: AI Lifestyle -->
-                <div class="absolute left-0 top-10 w-64 h-80 rounded-2xl overflow-hidden border border-white/10 shadow-2xl transform -rotate-6 hover:rotate-0 transition-all duration-500 animate-float hover:z-50">
-                    <img src="https://github.com/verman5069-ui/my-final-website/blob/main/AI-MODEL-1.jpg?raw=true" class="w-full h-full object-cover" alt="UGC Lifestyle">
-                    <div class="absolute bottom-3 left-3 bg-black/60 px-3 py-1 rounded-md text-xs font-mono backdrop-blur-md">UGC_LIFESTYLE</div>
-                </div>
-                <!-- Center: Cinematic Shoe/Product -->
-                <div class="absolute left-1/2 top-0 transform -translate-x-1/2 w-80 h-96 rounded-2xl overflow-hidden border border-white/20 shadow-[0_0_50px_rgba(255,255,255,0.1)] z-10 hover:scale-105 transition-all duration-500">
-                    <img src="https://github.com/verman5069-ui/my-final-website/blob/main/ai-cinematic-product.jpeg?raw=true" class="w-full h-full object-cover" alt="AI Cinema Product">
-                    <div class="absolute bottom-4 left-4 right-4 text-center bg-white/10 backdrop-blur-md py-2 rounded-lg border border-white/10">
-                        <p class="text-xs font-serif italic text-white">"AI Generated Cinema"</p>
-                    </div>
-                </div>
-                <!-- Right: Creative Ad -->
-                <div class="absolute right-0 top-10 w-64 h-80 rounded-2xl overflow-hidden border border-white/10 shadow-2xl transform rotate-6 hover:rotate-0 transition-all duration-500 animate-float hover:z-50" style="animation-delay: 1.5s;">
-                    <img src="https://github.com/verman5069-ui/my-final-website/blob/main/ai-creative-product.jpeg?raw=true" class="w-full h-full object-cover" alt="Creative Ad">
-                    <div class="absolute bottom-3 left-3 bg-black/60 px-3 py-1 rounded-md text-xs font-mono backdrop-blur-md">CREATIVE_AD</div>
-                </div>
             </div>
         </div>
     </header>
 
-    <!-- VIRAL SHORTS THEATRE -->
-    <section class="py-24 bg-black border-y border-white/5">
+    <section id="work" class="py-24 bg-brandCard border-y border-white/5">
         <div class="container mx-auto px-6">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h3 class="text-4xl font-serif font-bold text-white mb-4">Viral UGC & AI Ads</h3>
-                <p class="text-gray-400 max-w-2xl mx-auto">High-converting short-form content for modern brands.</p>
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16" data-aos="fade-up">
+                <div>
+                    <h2 class="text-sm font-bold text-brandMuted mb-2 uppercase tracking-widest">Selected Works</h2>
+                    <h3 class="text-4xl md:text-5xl font-bold tracking-tighter text-white">Viral UGC & Ads.</h3>
+                </div>
+                <p class="text-brandMuted max-w-md mt-4 md:mt-0">High-converting short-form formats designed specifically for the modern algorithm.</p>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-8 justify-center">
-                <!-- Short 1 -->
-                <div class="relative aspect-[9/16] rounded-2xl overflow-hidden border-2 border-white/10 shadow-xl group" data-aos="fade-up" data-aos-delay="100">
-                    <iframe class="w-full h-full" src="https://www.youtube.com/embed/RiM4n88f8eo" title="Fashion Reel" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div class="grid md:grid-cols-3 gap-6 justify-center">
+                <div class="agency-card rounded-2xl overflow-hidden aspect-[9/16] relative group" data-aos="fade-up" data-aos-delay="100">
+                    <iframe class="w-full h-full absolute inset-0 opacity-80 group-hover:opacity-100 transition-opacity duration-500" src="https://www.youtube.com/embed/RiM4n88f8eo?controls=0" title="Fashion Reel" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
-                <!-- Short 2 -->
-                <div class="relative aspect-[9/16] rounded-2xl overflow-hidden border-2 border-white/10 shadow-xl group" data-aos="fade-up" data-aos-delay="200">
-                    <iframe class="w-full h-full" src="https://www.youtube.com/embed/nShnrAwdrc0" title="Review Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div class="agency-card rounded-2xl overflow-hidden aspect-[9/16] relative group" data-aos="fade-up" data-aos-delay="200">
+                    <iframe class="w-full h-full absolute inset-0 opacity-80 group-hover:opacity-100 transition-opacity duration-500" src="https://www.youtube.com/embed/nShnrAwdrc0?controls=0" title="Review Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
-                <!-- Short 3 -->
-                <div class="relative aspect-[9/16] rounded-2xl overflow-hidden border-2 border-white/10 shadow-xl group" data-aos="fade-up" data-aos-delay="300">
-                    <iframe class="w-full h-full" src="https://www.youtube.com/embed/1TRdGotasio" title="Coffee Mug Ad" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- BEFORE / AFTER COMPARISON SECTION -->
-    <section id="comparison" class="py-24 bg-black border-y border-white/5">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-sm font-mono text-brandTeal mb-4 uppercase tracking-widest">[ The Outbox Difference ]</h2>
-                <h3 class="text-4xl md:text-5xl font-serif font-bold text-white mb-6">Stop Posting Boring Catalogues.</h3>
-                <p class="text-gray-400 max-w-2xl mx-auto">Everyone has products. Few have stories. See how we transform standard catalogue shots into viral assets using AI.</p>
-            </div>
-
-            <!-- Comparison Grid -->
-            <div class="grid gap-12 max-w-6xl mx-auto">
-                
-                <!-- Comparison 1 -->
-                <div class="grid md:grid-cols-2 gap-8 items-center bg-white/5 p-8 rounded-3xl border border-white/10" data-aos="fade-up">
-                    <div class="relative group">
-                        <div class="absolute top-4 left-4 bg-red-500/20 text-red-400 border border-red-500/50 px-3 py-1 rounded text-xs font-bold uppercase z-10">The Old Way</div>
-                        <img src="https://github.com/verman5069-ui/my-final-website/blob/main/raw-product-photo-1.jpg?raw=true" class="w-full h-80 object-contain bg-white rounded-xl" alt="Raw Product 1">
-                        <p class="mt-3 text-center text-sm text-gray-500">Standard White Background</p>
-                    </div>
-                    <div class="relative group">
-                        <div class="absolute top-4 left-4 bg-brandTeal/20 text-brandTeal border border-brandTeal/50 px-3 py-1 rounded text-xs font-bold uppercase z-10">The AI Way</div>
-                        <img src="https://github.com/verman5069-ui/my-final-website/blob/main/real-product-1.jpeg?raw=true" class="w-full h-80 object-cover rounded-xl shadow-2xl" alt="AI Generated 1">
-                        <p class="mt-3 text-center text-sm text-brandTeal">Viral Lifestyle Asset</p>
-                    </div>
-                </div>
-
-                <!-- Comparison 2 -->
-                <div class="grid md:grid-cols-2 gap-8 items-center bg-white/5 p-8 rounded-3xl border border-white/10" data-aos="fade-up">
-                    <div class="relative group">
-                        <div class="absolute top-4 left-4 bg-red-500/20 text-red-400 border border-red-500/50 px-3 py-1 rounded text-xs font-bold uppercase z-10">The Old Way</div>
-                        <img src="https://github.com/verman5069-ui/my-final-website/blob/main/raw-product-photo-2.jpg?raw=true" class="w-full h-80 object-contain bg-white rounded-xl" alt="Raw Product 2">
-                        <p class="mt-3 text-center text-sm text-gray-500">Flat Studio Shot</p>
-                    </div>
-                    <div class="relative group">
-                        <div class="absolute top-4 left-4 bg-brandTeal/20 text-brandTeal border border-brandTeal/50 px-3 py-1 rounded text-xs font-bold uppercase z-10">The AI Way</div>
-                        <img src="https://github.com/verman5069-ui/my-final-website/blob/main/real-product-2.jpeg?raw=true" class="w-full h-80 object-cover rounded-xl shadow-2xl" alt="AI Generated 2">
-                        <p class="mt-3 text-center text-sm text-brandTeal">High-Definition Studio AI</p>
-                    </div>
-                </div>
-
-                 <!-- Comparison 3 -->
-                 <div class="grid md:grid-cols-2 gap-8 items-center bg-white/5 p-8 rounded-3xl border border-white/10" data-aos="fade-up">
-                    <div class="relative group">
-                        <div class="absolute top-4 left-4 bg-red-500/20 text-red-400 border border-red-500/50 px-3 py-1 rounded text-xs font-bold uppercase z-10">The Old Way</div>
-                        <img src="https://github.com/verman5069-ui/my-final-website/blob/main/raw-product-photo-3.jpg?raw=true" class="w-full h-80 object-contain bg-white rounded-xl" alt="Raw Product 3">
-                        <p class="mt-3 text-center text-sm text-gray-500">Basic E-com Shot</p>
-                    </div>
-                    <div class="relative group">
-                        <div class="absolute top-4 left-4 bg-brandTeal/20 text-brandTeal border border-brandTeal/50 px-3 py-1 rounded text-xs font-bold uppercase z-10">The AI Way</div>
-                        <img src="https://github.com/verman5069-ui/my-final-website/blob/main/real-product-3.jpeg?raw=true" class="w-full h-80 object-cover rounded-xl shadow-2xl" alt="AI Generated 3">
-                        <p class="mt-3 text-center text-sm text-brandTeal">Contextual Brand Story</p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- VISUAL SHOWCASE MARQUEE (Using NEW Filenames) -->
-    <section id="showcase" class="py-16 bg-white/5 border-y border-white/10 overflow-hidden">
-        <div class="text-center mb-8">
-            <h3 class="text-sm font-mono text-gray-400 uppercase tracking-widest">Our AI Production Gallery</h3>
-        </div>
-        <div class="flex animate-marquee w-max gap-8 items-center">
-            <!-- Full Set -->
-            <img src="https://github.com/verman5069-ui/my-final-website/blob/main/ai-product-image-1.jpg?raw=true" class="h-64 w-auto rounded-lg object-cover">
-            <img src="https://github.com/verman5069-ui/my-final-website/blob/main/ai-product-image-3.jpg?raw=true" class="h-64 w-auto rounded-lg object-cover">
-            <img src="https://github.com/verman5069-ui/my-final-website/blob/main/ai-product-image-5.jpg?raw=true" class="h-64 w-auto rounded-lg object-cover">
-            <img src="https://github.com/verman5069-ui/my-final-website/blob/main/ai-product-image-7.jpg?raw=true" class="h-64 w-auto rounded-lg object-cover">
-            <img src="https://github.com/verman5069-ui/my-final-website/blob/main/ai-product-image-9.jpg?raw=true" class="h-64 w-auto rounded-lg object-cover">
-            <img src="https://github.com/verman5069-ui/my-final-website/blob/main/ai-product-image-11.jpg?raw=true" class="h-64 w-auto rounded-lg object-cover">
-            <img src="https://github.com/verman5069-ui/my-final-website/blob/main/ai-product-image-13.jpg?raw=true" class="h-64 w-auto rounded-lg object-cover">
-            <img src="https://github.com/verman5069-ui/my-final-website/blob/main/ai-product-image-15.jpg?raw=true" class="h-64 w-auto rounded-lg object-cover">
-            <img src="https://github.com/verman5069-ui/my-final-website/blob/main/ai-product-image-17.jpg?raw=true" class="h-64 w-auto rounded-lg object-cover">
-            <img src="https://github.com/verman5069-ui/my-final-website/blob/main/ai-product-image-2.jpg?raw=true" class="h-64 w-auto rounded-lg object-cover">
-            <img src="https://github.com/verman5069-ui/my-final-website/blob/main/ai-product-image-4.jpg?raw=true" class="h-64 w-auto rounded-lg object-cover">
-            <img src="https://github.com/verman5069-ui/my-final-website/blob/main/ai-product-image-6.jpg?raw=true" class="h-64 w-auto rounded-lg object-cover">
-            <img src="https://github.com/verman5069-ui/my-final-website/blob/main/ai-product-image-8.jpg?raw=true" class="h-64 w-auto rounded-lg object-cover">
-            <img src="https://github.com/verman5069-ui/my-final-website/blob/main/ai-product-image-10.jpg?raw=true" class="h-64 w-auto rounded-lg object-cover">
-            <img src="https://github.com/verman5069-ui/my-final-website/blob/main/ai-product-image-12.jpg?raw=true" class="h-64 w-auto rounded-lg object-cover">
-            <img src="https://github.com/verman5069-ui/my-final-website/blob/main/ai-product-image-14.jpg?raw=true" class="h-64 w-auto rounded-lg object-cover">
-            <img src="https://github.com/verman5069-ui/my-final-website/blob/main/ai-product-image-16.jpg?raw=true" class="h-64 w-auto rounded-lg object-cover">
-            <img src="https://github.com/verman5069-ui/my-final-website/blob/main/ai-product-image-18.jpg?raw=true" class="h-64 w-auto rounded-lg object-cover">
-            
-            <!-- Loop Start -->
-            <img src="https://github.com/verman5069-ui/my-final-website/blob/main/ai-product-image-3.jpg?raw=true" class="h-64 w-auto rounded-lg object-cover">
-            <img src="https://github.com/verman5069-ui/my-final-website/blob/main/ai-product-image-1.jpg?raw=true" class="h-64 w-auto rounded-lg object-cover">
-            <img src="https://github.com/verman5069-ui/my-final-website/blob/main/ai-product-image-2.jpg?raw=true" class="h-64 w-auto rounded-lg object-cover">
-        </div>
-    </section>
-
-    <!-- FOUNDER SECTION -->
-    <section id="about" class="py-24 bg-brandDark relative">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row gap-16 items-center">
-                <!-- Image -->
-                <div class="w-full md:w-1/2" data-aos="fade-right">
-                    <div class="relative group">
-                        <div class="absolute inset-0 bg-brandTeal rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
-                        <img src="https://github.com/verman5069-ui/my-final-website/blob/main/founder-image.jpg?raw=true" alt="Nikhil Founder" class="relative w-full rounded-2xl border border-white/10 shadow-2xl transition duration-700">
-                    </div>
-                </div>
-
-                <!-- Text -->
-                <div class="w-full md:w-1/2" data-aos="fade-left">
-                    <h2 class="text-sm font-mono text-brandTeal mb-4">FOUNDER'S NOTE</h2>
-                    <h3 class="text-4xl font-serif font-bold mb-6 italic">"Perfection is boring. Emotion scales."</h3>
-                    
-                    <div class="space-y-6 text-gray-400 text-lg leading-relaxed">
-                        <p>Hey, I’m <span class="text-white font-bold">Nikhil</span>.</p>
-                        <p>I’ve obsessed over why some videos explode and others die. The secret isn't just "better cameras." It's understanding the psychology of the scroll.</p>
-                        <p>At Outbox, we combine that psychology with <strong>cutting-edge AI</strong> to give your brand an unfair advantage. Whether it's a sneaker drop or a SaaS tool, we make it look like a blockbuster.</p>
-                    </div>
-
-                    <div class="mt-10 flex flex-col sm:flex-row gap-6 border-t border-white/10 pt-8">
-                        <a href="mailto:outboxmedia.nikhil@gmail.com" class="flex items-center gap-3 text-white hover:text-brandTeal transition-colors">
-                            <span class="text-xl">✉️</span> outboxmedia.nikhil@gmail.com
-                        </a>
-                        <a href="tel:+919163508072" class="flex items-center gap-3 text-white hover:text-brandTeal transition-colors">
-                            <span class="text-xl">📞</span> +91 91635 08072
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-        <!-- AI GENERATED CREATORS SECTION -->
-    <section id="creators" class="py-24 bg-brandGray border-y border-white/5">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-sm font-mono text-brandTeal mb-4 uppercase tracking-widest">[ The Future of Talent ]</h2>
-                <h3 class="text-4xl md:text-5xl font-serif font-bold text-white mb-6">AI Generated Creators</h3>
-                <p class="text-gray-400 max-w-2xl mx-auto">Consistent, on-brand, and available 24/7. Meet the diverse faces of modern UGC.</p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-8 justify-center">
-                <!-- AI Model 1 -->
-                <div class="relative rounded-2xl overflow-hidden border border-white/10 shadow-xl group h-[500px]" data-aos="fade-up" data-aos-delay="100">
-                    <img src="https://github.com/verman5069-ui/my-final-website/blob/main/AI-MODEL-1.jpg?raw=true" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="AI Model 1">
-                    <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black to-transparent p-6">
-                        <p class="text-white font-bold">Lifestyle & Fashion</p>
-                    </div>
-                </div>
-                
-                <!-- AI Model 2 -->
-                <div class="relative rounded-2xl overflow-hidden border border-white/10 shadow-xl group h-[500px]" data-aos="fade-up" data-aos-delay="200">
-                    <img src="https://github.com/verman5069-ui/my-final-website/blob/main/AI-MODEL-2.jpg?raw=true" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="AI Model 2">
-                    <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black to-transparent p-6">
-                        <p class="text-white font-bold">Tech & Review</p>
-                    </div>
-                </div>
-
-                <!-- AI Model 3 -->
-                <div class="relative rounded-2xl overflow-hidden border border-white/10 shadow-xl group h-[500px]" data-aos="fade-up" data-aos-delay="300">
-                    <img src="https://github.com/verman5069-ui/my-final-website/blob/main/AI-MODEL-3.jpg?raw=true" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="AI Model 3">
-                    <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black to-transparent p-6">
-                        <p class="text-white font-bold">Health & Wellness</p>
-                    </div>
+                <div class="agency-card rounded-2xl overflow-hidden aspect-[9/16] relative group" data-aos="fade-up" data-aos-delay="300">
+                    <iframe class="w-full h-full absolute inset-0 opacity-80 group-hover:opacity-100 transition-opacity duration-500" src="https://www.youtube.com/embed/1TRdGotasio?controls=0" title="Coffee Mug Ad" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 5 TAILORED SOLUTIONS -->
-    <section id="services" class="py-24 relative">
+    <section id="solutions" class="py-32 relative">
         <div class="container mx-auto px-6">
             <div class="mb-20" data-aos="fade-up">
-                <h2 class="text-4xl md:text-6xl font-serif font-bold mb-6">Tailored Solutions</h2>
-                <p class="text-xl text-gray-400">We don't just edit. We engineer desire using the latest AI tech. Choose from our 5 Core Engines.</p>
+                <h2 class="text-xs font-bold text-brandMuted mb-2 uppercase tracking-widest">Our Capabilities</h2>
+                <h3 class="text-5xl md:text-6xl font-bold tracking-tighter mb-6">Engineered solutions.</h3>
             </div>
 
-            <!-- Grid Layout -->
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                
-                <!-- 1. AI UGC Ads -->
-                <div class="glass-panel p-8 rounded-3xl hover:bg-white/5 transition-all group" data-aos="fade-up">
-                    <div class="h-12 w-12 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 mb-6 text-2xl">✨</div>
-                    <h3 class="text-2xl font-bold mb-3">AI UGC Advertisements</h3>
-                    <p class="text-gray-400 mb-6 text-sm leading-relaxed">Don't rely on expensive influencers. We generate high-converting, relatable UGC-style ads using AI avatars and voice clones that feel 100% authentic.</p>
-                    <a href="https://calendly.com/outboxmedia-nikhil/30min" target="_blank" class="text-sm font-bold text-white hover:text-brandTeal flex items-center gap-2 mt-auto">
-                        Schedule Strategy <span class="text-lg">→</span>
-                    </a>
+                <div class="agency-card p-10 rounded-3xl" data-aos="fade-up">
+                    <div class="text-brandMuted mb-6 text-sm font-mono">01 //</div>
+                    <h3 class="text-2xl font-bold tracking-tight mb-4">AI UGC Ads</h3>
+                    <p class="text-brandMuted text-sm leading-relaxed mb-8">We generate high-converting, relatable UGC-style ads using AI avatars and voice clones that feel 100% authentic, bypassing expensive influencer fees.</p>
                 </div>
 
-                <!-- 2. AI Product Shoots -->
-                <div class="glass-panel p-8 rounded-3xl hover:bg-white/5 transition-all group" data-aos="fade-up" data-aos-delay="100">
-                    <div class="h-12 w-12 rounded-full bg-teal-500/20 flex items-center justify-center text-brandTeal mb-6 text-2xl">📸</div>
-                    <h3 class="text-2xl font-bold mb-3">AI Product Shoots</h3>
-                    <p class="text-gray-400 mb-6 text-sm leading-relaxed">Turn 1 boring product photo into 100 lifestyle variations. We place your product in Paris, a rugged workshop, or a luxury studio—without leaving our desk.</p>
-                    <a href="https://calendly.com/outboxmedia-nikhil/30min" target="_blank" class="text-sm font-bold text-white hover:text-brandTeal flex items-center gap-2 mt-auto">
-                        Schedule Strategy <span class="text-lg">→</span>
-                    </a>
+                <div class="agency-card p-10 rounded-3xl" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-brandMuted mb-6 text-sm font-mono">02 //</div>
+                    <h3 class="text-2xl font-bold tracking-tight mb-4">AI Product Shoots</h3>
+                    <p class="text-brandMuted text-sm leading-relaxed mb-8">Turn 1 standard product photo into 100 lifestyle variations. We virtually place your product in high-end environments without physical sets.</p>
                 </div>
 
-                <!-- 3. Viral Content Engine -->
-                <div class="glass-panel p-8 rounded-3xl hover:bg-white/5 transition-all group" data-aos="fade-up" data-aos-delay="200">
-                    <div class="h-12 w-12 rounded-full bg-purple-500/20 flex items-center justify-center text-brandPurple mb-6 text-2xl">🔥</div>
-                    <h3 class="text-2xl font-bold mb-3">Viral Content Editing</h3>
-                    <p class="text-gray-400 mb-6 text-sm leading-relaxed">The classic Outbox special. Hooks, pacing, and sound design that glues eyes to the screen. Perfect for founders building a personal brand.</p>
-                    <a href="https://calendly.com/outboxmedia-nikhil/30min" target="_blank" class="text-sm font-bold text-white hover:text-brandTeal flex items-center gap-2 mt-auto">
-                        Schedule Strategy <span class="text-lg">→</span>
-                    </a>
+                <div class="agency-card p-10 rounded-3xl" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-brandMuted mb-6 text-sm font-mono">03 //</div>
+                    <h3 class="text-2xl font-bold tracking-tight mb-4">Viral Content Editing</h3>
+                    <p class="text-brandMuted text-sm leading-relaxed mb-8">Precision pacing, psychological hooks, and sound design that glues eyes to the screen. Built for founders scaling personal brands.</p>
                 </div>
 
-                <!-- 4. Content Growth + Mgmt (Formatted) -->
-                <div class="glass-panel p-8 rounded-3xl hover:bg-white/5 transition-all group" data-aos="fade-up" data-aos-delay="300">
-                    <div class="h-12 w-12 rounded-full bg-yellow-500/20 flex items-center justify-center text-yellow-400 mb-6 text-2xl">📈</div>
-                    <h3 class="text-2xl font-bold mb-3">Content Growth + Mgmt</h3>
-                    <div class="text-sm space-y-4 mb-6">
-                        <div class="flex gap-3 items-start">
-                            <span class="text-red-500">❌</span>
-                            <span class="text-gray-400"><strong class="text-red-400">Problem:</strong> Inconsistent posting.</span>
-                        </div>
-                        <ul class="space-y-2">
-                            <li class="flex gap-3 items-center"><span class="text-green-500">✅</span> <span class="text-gray-300">Done-For-You Uploading.</span></li>
-                            <li class="flex gap-3 items-center"><span class="text-green-500">✅</span> <span class="text-gray-300">Keyword & Hashtag SEO.</span></li>
-                            <li class="flex gap-3 items-center"><span class="text-green-500">✅</span> <span class="text-gray-300">Monthly Strategy & Analytics.</span></li>
-                        </ul>
-                    </div>
-                    <a href="https://calendly.com/outboxmedia-nikhil/30min" target="_blank" class="text-sm font-bold text-white hover:text-brandTeal flex items-center gap-2 mt-auto">
-                        Schedule Strategy <span class="text-lg">→</span>
-                    </a>
+                <div class="agency-card p-10 rounded-3xl md:col-span-2 lg:col-span-1" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-brandMuted mb-6 text-sm font-mono">04 //</div>
+                    <h3 class="text-2xl font-bold tracking-tight mb-4">End-to-End Management</h3>
+                    <ul class="space-y-3 text-sm text-brandMuted mt-4">
+                        <li class="flex items-center gap-3"><div class="w-1.5 h-1.5 bg-white rounded-full"></div> Done-For-You Uploading</li>
+                        <li class="flex items-center gap-3"><div class="w-1.5 h-1.5 bg-white rounded-full"></div> Keyword & Hashtag SEO</li>
+                        <li class="flex items-center gap-3"><div class="w-1.5 h-1.5 bg-white rounded-full"></div> Monthly Strategy & Analytics</li>
+                    </ul>
                 </div>
-
-                <!-- 5. AI-Avatar Automation (Formatted) -->
-                <div class="glass-panel p-8 rounded-3xl hover:bg-white/5 transition-all group" data-aos="fade-up" data-aos-delay="400">
-                    <div class="h-12 w-12 rounded-full bg-pink-500/20 flex items-center justify-center text-pink-400 mb-6 text-2xl">🤖</div>
-                    <h3 class="text-2xl font-bold mb-3">AI-Avatar Automation</h3>
-                    <div class="text-sm space-y-4 mb-6">
-                        <div class="flex gap-3 items-start">
-                            <span class="text-red-500">❌</span>
-                            <span class="text-gray-400"><strong class="text-red-400">Problem:</strong> Hate being on camera.</span>
-                        </div>
-                        <ul class="space-y-2">
-                            <li class="flex gap-3 items-center"><span class="text-green-500">✅</span> <span class="text-gray-300">Realistic AI Avatars.</span></li>
-                            <li class="flex gap-3 items-center"><span class="text-green-500">✅</span> <span class="text-gray-300">Zero shooting required.</span></li>
-                            <li class="flex gap-3 items-center"><span class="text-green-500">✅</span> <span class="text-gray-300">Full production script-to-post.</span></li>
-                        </ul>
-                    </div>
-                    <a href="https://calendly.com/outboxmedia-nikhil/30min" target="_blank" class="text-sm font-bold text-white hover:text-brandTeal flex items-center gap-2 mt-auto">
-                        Schedule Strategy <span class="text-lg">→</span>
-                    </a>
-                </div>
-
             </div>
         </div>
     </section>
 
-    <!-- FOOTER CTA -->
-    <section class="py-24 bg-gradient-to-t from-brandTeal/10 to-brandDark text-center border-t border-white/5">
+    <section id="creators" class="py-24 bg-brandCard border-y border-white/5">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16" data-aos="fade-up">
+                <div>
+                    <h2 class="text-sm font-bold text-brandMuted mb-2 uppercase tracking-widest">The Talent</h2>
+                    <h3 class="text-4xl md:text-5xl font-bold tracking-tighter text-white">AI Avatars.</h3>
+                </div>
+                <p class="text-brandMuted max-w-md mt-4 md:mt-0">Consistent, on-brand representation available 24/7 without production delays.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="agency-card rounded-2xl overflow-hidden h-[500px] relative" data-aos="fade-up">
+                    <img src="https://github.com/verman5069-ui/my-final-website/blob/main/AI-MODEL-1.jpg?raw=true" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" alt="Model 1">
+                    <div class="absolute bottom-6 left-6 text-white text-sm font-bold tracking-widest uppercase">Lifestyle</div>
+                </div>
+                <div class="agency-card rounded-2xl overflow-hidden h-[500px] relative" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://github.com/verman5069-ui/my-final-website/blob/main/AI-MODEL-2.jpg?raw=true" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" alt="Model 2">
+                    <div class="absolute bottom-6 left-6 text-white text-sm font-bold tracking-widest uppercase">Tech / Review</div>
+                </div>
+                <div class="agency-card rounded-2xl overflow-hidden h-[500px] relative" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://github.com/verman5069-ui/my-final-website/blob/main/AI-MODEL-3.jpg?raw=true" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" alt="Model 3">
+                    <div class="absolute bottom-6 left-6 text-white text-sm font-bold tracking-widest uppercase">Wellness</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-32">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row gap-16 items-center">
+                <div class="w-full md:w-5/12" data-aos="fade-right">
+                    <img src="https://github.com/verman5069-ui/my-final-website/blob/main/founder-image.jpg?raw=true" alt="Nikhil" class="w-full rounded-2xl grayscale border border-white/10">
+                </div>
+                <div class="w-full md:w-7/12" data-aos="fade-left">
+                    <h2 class="text-xs font-bold text-brandMuted mb-4 uppercase tracking-widest">Leadership</h2>
+                    <h3 class="text-4xl md:text-5xl font-bold tracking-tighter mb-8">"Perfection is boring.<br>Emotion scales."</h3>
+                    
+                    <div class="space-y-6 text-brandMuted text-lg font-medium leading-relaxed max-w-xl">
+                        <p>I’m <span class="text-white">Nikhil</span>.</p>
+                        <p>I’ve obsessed over why some videos explode and others die. The secret isn't just better cameras—it's understanding the psychology of the scroll.</p>
+                        <p>At Outbox, we merge that psychology with cutting-edge AI to give your brand an unfair market advantage.</p>
+                    </div>
+
+                    <div class="mt-12 flex flex-col sm:flex-row gap-8 border-t border-white/10 pt-8">
+                        <a href="mailto:outboxmedia.nikhil@gmail.com" class="text-sm font-bold uppercase tracking-widest hover:text-brandMuted transition-colors">
+                            outboxmedia.nikhil@gmail.com
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-32 bg-brandCard text-center border-t border-white/5">
         <div class="container mx-auto px-6" data-aos="zoom-in">
-            <h2 class="text-5xl md:text-7xl font-serif font-bold mb-8">Ready to Outbox?</h2>
-            <p class="text-xl text-gray-400 mb-10 max-w-xl mx-auto">Your brand deserves the cinematic treatment. Let's schedule a 30-minute breakdown of your content strategy.</p>
-            <a href="https://calendly.com/outboxmedia-nikhil/30min" target="_blank" class="inline-block px-10 py-5 bg-brandTeal text-black font-bold text-xl rounded-full hover:bg-white hover:scale-105 transition-all shadow-[0_0_40px_rgba(45,212,191,0.4)]">
-                Book Your Call Now
+            <h2 class="text-5xl md:text-7xl font-bold tracking-tighter mb-8">Ready to scale?</h2>
+            <p class="text-lg text-brandMuted mb-10 max-w-md mx-auto">Your brand deserves the cinematic treatment. Schedule a strategic breakdown.</p>
+            <a href="https://calendly.com/outboxmedia-nikhil/30min" target="_blank" class="inline-block px-10 py-5 bg-white text-black font-bold rounded-full hover:scale-105 transition-transform">
+                Initiate Project
             </a>
         </div>
     </section>
 
-    <footer class="py-8 bg-black text-center text-gray-600 text-sm border-t border-white/5">
-        <p>&copy; 2025 Outbox Media. Cinematic Growth Engines.</p>
+    <footer class="py-8 bg-[#030303] text-center text-brandMuted text-sm font-medium border-t border-white/5">
+        <p>&copy; 2025 Outbox Media. All rights reserved.</p>
     </footer>
 
-    <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({ once: true, offset: 50, duration: 1000, easing: 'ease-out-cubic' });
+        AOS.init({ once: true, offset: 30, duration: 800, easing: 'ease-out-cubic' });
     </script>
 </body>
 </html>
